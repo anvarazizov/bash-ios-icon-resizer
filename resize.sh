@@ -2,9 +2,11 @@
 
 echo "Resize script for $1 started"
 
-mkdir $1_icons
-cp $1 $1_icons
-cd $1_icons
+FOLDER_NAME = $1-icons
+
+mkdir FOLDER_NAME
+cp $1 FOLDER_NAME
+cd FOLDER_NAME
 
 convert $1 -resize 512x512 "icon_512x512.png"
 convert $1 -resize 180x180 "icon_60x60@3x.png"
