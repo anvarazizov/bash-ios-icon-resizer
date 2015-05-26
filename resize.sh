@@ -2,7 +2,9 @@
 
 echo "Resize script for $1 started"
 
-FOLDER_NAME=$1"-icons-iphone"
+inputFile="${1##*/}"
+FILE_NAME="${inputFile%.*}"
+FOLDER_NAME="$FILE_NAME-icons-iphone"
 
 mkdir $FOLDER_NAME
 cp $1 $FOLDER_NAME
@@ -23,7 +25,7 @@ convert $1 -resize 29x29 "icon_29x29.png"
 
 echo "IPad version"
 cd ..
-FOLDER_NAME=$1-"icons-ipad"
+FOLDER_NAME="$FILE_NAME-icons-ipad"
 
 mkdir $FOLDER_NAME
 cp $1 $FOLDER_NAME
@@ -38,7 +40,7 @@ convert $1 -resize 152x152 "icon_76x76@2x.png"
 
 echo "IWatch version"
 cd ..
-FOLDER_NAME=$1-"icons-iwatch"
+FOLDER_NAME="$FILE_NAME-icons-iwatch"
 
 mkdir $FOLDER_NAME
 cp $1 $FOLDER_NAME
